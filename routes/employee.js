@@ -5,16 +5,16 @@ const Employee = require('../model/employee');
 
 // get all
 router.get('/', (req, res) => {
-  Employee.find().where('name').regex(req.query.filter || '').then(employees => res.json(employees));
+  Employee.find().where('employee').regex(req.query.filter || '').then(employees => res.json(employees));
 });
 
 
 // create an employee
 router.post('/', (req, res) => {
-  if (!req.body.name) {
+  if (!req.body.employee) {
     return res.status(400).json({ mesasge: 'Invalid syntax' });
   }
-  Employee.create({ name: req.body.name, manager: req.body.manager })
+  Employee.create({ employee: req.body.employee, manager: req.body.manager })
 });
   // update employee
 //     .then(employee => Employee.findByIdAndUpdate(req.body.name, { $push: { employees: employee._id } }))

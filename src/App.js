@@ -20,7 +20,7 @@ class App extends Component {
   handleAddEmployee = employee => {
     // make a call
     axios.post('http://localhost:3001/api', {
-      name: employee.name,
+      employee: employee.employee,
       manager: employee.manager
     })
     .then(res => {

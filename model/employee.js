@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
 
 const schema = mongoose.Schema({
-  name: String,
+  employee: {
+    type: String,
+    required: true
+  },
   manager: String,
 });
-
 
 const employee = mongoose.model('employee', schema);
 
